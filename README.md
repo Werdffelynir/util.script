@@ -35,4 +35,7 @@ Util.randColor ()                           // Returns random string color, HEX 
 Util.degreesToRadians (deg)                 // Converts degrees to radians
 Util.radiansToDegrees (rad)                 // Converts radians to degrees
 Util.distanceBetween (point1, point2)       // The calculation of the distance between points
+Util.encodeData (data)                      // Encode URI params
+Util.parseGet (url)                         // Parse URI Request data into object
+Util.parseUrl (url)                         // Parse Url string/location into object 
 ```

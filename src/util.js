@@ -442,6 +442,64 @@
         return Math.sqrt(dx * dx + dy * dy);
     };
 
+    /**
+     * Encode URI params
+     * @param data      Object key=value
+     * @returns {*}     query string
+     */
+    o.encodeData = function(data){
+        if(typeof data === 'string') return data;
+        if(typeof data !== 'object') return '';
+        var convertData = [];
+        Object.keys(data).forEach(function(key){
+            convertData.push(key+'='+encodeURIComponent(data[key]));
+        });
+        return convertData.join('&');
+    };
+
+    /**
+     * Parse URI Request data into object
+     * @param url
+     * @returns {{}}
+     */
+    o.parseGet = function(url){
+        url = url || document.location;
+        var params = {};
+        var parser = document.createElement('a');
+        parser.href = url;
+        if(parser.search.length > 1){
+            parser.search.substr(1).split('&').forEach(function(part){
+                var item = part.split('=');
+                params[item[0]] = decodeURIComponent(item[1]);
+            });
+        }
+        return params;
+    };
+
+    /**
+     * Parse Url string/location into object
+     * @param url
+     * @returns {{}}
+     */
+    o.parseUrl = function(url){
+        url = url || document.location;
+        var params = {};
+        var parser = document.createElement('a');
+        parser.href = url;
+        params.protocol = parser.protocol;
+        params.host = parser.host;
+        params.hostname = parser.hostname;
+        params.port = parser.port;
+        params.pathname = parser.pathname;
+        params.hash = parser.hash;
+        params.search = parser.search;
+        params.get = o.parseGet(parser.search);
+        return params;
+    };
+
+
+
+
 
     window.Util = o;
 
