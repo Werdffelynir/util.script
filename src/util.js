@@ -238,7 +238,7 @@
     };
 
     /**
-     * Reads entire file into a string
+     * Reads entire file into a string, synchronously
      * This function uses XmlHttpRequest and cannot retrieve resource from different domain.
      * @param url
      * @returns {*|string|null|string}

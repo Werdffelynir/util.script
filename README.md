@@ -24,7 +24,7 @@ Util.typeOf (data)                          // Return type of data
 Util.formData (form, asObject)              // Convert HTML form to encode URI string
 Util.toNode (data)                          // HTML string convert to DOM Elements Object
 Util.uniqueArr (arr)                        // Removes duplicate values from an array
-Util.fileGetContents (url)                  // Reads entire file into a string
+Util.fileGetContents (url)                  // Reads entire file into a string, synchronously
 Util.getPosition (elem)                     // Calculates the position and size of elements.
 Util.getMouseElement (element, event)       // Returns the coordinates of the mouse on any element
 Util.getMouseCanvas (canvas, event)         // Returns the coordinates of the mouse on the canvas element
