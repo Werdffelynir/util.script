@@ -371,7 +371,7 @@
      * @param inner     text, html or NodeElement
      * @returns {Element}
      */
-    o.createNode = function (tag, attrs, inner) {
+    o.createElement = function (tag, attrs, inner) {
         var elem = document.createElement(tag);
         if (typeof attrs === 'object') {
             for (var key in prop)
@@ -497,9 +497,33 @@
         return params;
     };
 
-
-
-
+    o.Storage = function(name, value){
+        if(!name){
+            return false;
+        }else if(value === undefined){
+            return o.Storage.get(name);
+        }else if(!value){
+            return o.Storage.remove(name);
+        }else{
+            return o.Storage.set(name, value);
+        }
+    };
+    o.Storage.set = function (name, value) {
+        try{value = JSON.stringify(value)}catch(error){}
+        return window.localStorage.setItem(name, value);
+    };
+    o.Storage.get = function (name) {
+        var value = window.localStorage.getItem(name);
+        if(value)
+            try{value = JSON.parse(value)}catch(error){}
+        return value;
+    };
+    o.Storage.remove = function (name) {
+        return window.localStorage.removeItem(name);
+    };
+    o.Storage.key = function (name) {
+        return window.localStorage.key(key);
+    };
 
     window.Util = o;
 

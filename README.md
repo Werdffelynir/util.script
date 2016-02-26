@@ -29,7 +29,7 @@ Util.getPosition (elem)                     // Calculates the position and size 
 Util.getMouseElement (element, event)       // Returns the coordinates of the mouse on any element
 Util.getMouseCanvas (canvas, event)         // Returns the coordinates of the mouse on the canvas element
 Util.createStyle (selector, property)       // Creator of styles, return style-element or style-text.
-Util.createNode (tag, attrs, inner)         // Create new NodeElement
+Util.createElement (tag, attrs, inner)      // Create new NodeElement
 Util.rand (min, max)                        // Returns a random integer between min, max
 Util.randColor ()                           // Returns random string color, HEX format
 Util.degreesToRadians (deg)                 // Converts degrees to radians
@@ -38,4 +38,9 @@ Util.distanceBetween (point1, point2)       // The calculation of the distance b
 Util.encodeData (data)                      // Encode URI params
 Util.parseGet (url)                         // Parse URI Request data into object
 Util.parseUrl (url)                         // Parse Url string/location into object 
+Util.Storage (name, value)                  // Multi LocalStorage worker (combine Storage.set, Storage.get and Storage.remove)
+Util.Storage.set (name, value)              // LocalStorage worker set item to storage
+Util.Storage.get (name)                     // LocalStorage worker get item from storage
+Util.Storage.kay (name)                     // LocalStorage worker get item from storage by index
+Util.Storage.remove (name)                  // LocalStorage worker delete item from storage
 ```
